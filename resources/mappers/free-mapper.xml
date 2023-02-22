@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FreeMapper">
+	<resultMap type="freeboard.model.vo.Free" id="freeResultMap">
+		<id property="freeNo" column="FREE_NO"/>
+		<result property="freeSubject" column="FREE_SUBJECT"/>
+		<result property="freeContent" column="FREE_CONTENT"/>
+		<result property="freeWriter" column="FREE_WRITER"/>
+		<result property="freeCategory" column="FREE_CATEGORY"/>
+		<result property="freeDate" column="FREE_DATE"/>
+		<result property="viewCount" column="VIEW_COUNT"/>
+		<result property="likeCount" column="LIKE_COUNT"/>
+	</resultMap>
+
+	<insert id="insertFreeBoard" parameterType="freeboard.model.vo.Free">
+		INSERT INTO FREE_BOARD VALUES(SEQ_FREENO.NEXTVAL, #{freeSubject }, #{freeContent }, #{freeWriter }, #{freeCategory }, DEFAULT, DEFAULT, DEFAULT)
+	</insert>
+	
+	<select id="selectAllFreeBoard" resultMap="freeResultMap">
+<!-- 		SELECT * FROM (SELECT ROWNUM AS NUM, FREE_BOARD.* FROM FREE_BOARD ORDER BY FREE_NO DESC) WHERE NUM BETWEEN #{start} AND #{end} -->
+		SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY FREE_NO DESC) AS NUM, FREE_BOARD.* FROM FREE_BOARD) WHERE NUM BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectCountFreeBoard" resultType="_int">
+		SELECT COUNT(*) FROM FREE_BOARD
+	</select>
+</mapper>

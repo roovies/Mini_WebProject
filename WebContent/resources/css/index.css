@@ -1,0 +1,237 @@
+*{
+    margin: 0; /*마진 리셋*/
+    padding: 0; /*패딩 리셋*/
+    box-sizing: border-box; /*요소의 너비와 높이를 균일하게 유지해주는 편리한 속성*/
+}
+a{
+    /* 하이퍼링크 밑줄 없애기 */
+    text-decoration: none; 
+}
+ul{
+    /* 리스트 불릿기호 없애기 */
+    list-style-type: none;
+}
+
+/* header, nav 상단 고정 */
+#fixed{
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+}
+/* 헤더 부분 */
+header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    --position: fixed;
+    --background-image: url(../images/background/headerbackground.png);
+}
+    #sns>ul{
+        display: flex;
+    }
+        #sns>ul>li{
+            padding: 10px;
+        }
+    #logo>a{
+        font-size: 3em;
+        font-family: 'Fredoka One', cursive;
+        color: rgb(255, 109, 140);
+    }
+    #login>ul{
+        display: flex;
+    }
+    #login a{
+        color: rgb(255, 109, 140);
+    }
+        #login>ul>li{
+            padding: 10px;
+        }
+
+/* 구분선 */
+hr{
+    border: 0;
+    height: 1px;
+    background-color: rgb(204, 200, 200);
+}
+
+/* 네비게이션(TopMenu) 부분 */
+#topMenu{
+    /* min-width: 600px; */ 
+    height: 50px;
+    background-color: white;
+}
+    #topMenu>ul{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 50px;
+    }
+    #topMenu>ul>li{
+        margin: 15px;
+    }
+    #topMenu a{
+        font-weight: bold;
+        font-size: 1.1em;
+        color: rgb(128, 121, 121);
+        /* padding: 15px 100px; */
+    }
+    #topMenu a:hover{
+            /* background-color: rgba(255, 109, 140, 0.2); */
+            /* padding: 15px 70px; */
+            color: black;
+            border-bottom: 3px red solid;
+        }
+
+
+/* 메인 부분 */
+#topsize{
+    width: 100%;
+    height: 150px;
+}
+main{
+    width: 100%;
+    height: 900px;
+}
+    .firstslider{
+        width: 1920px;
+        height: 730px;
+        position: relative;
+        margin: 0 auto;
+    }
+    .firstslider input[type=radio]{
+        display: none;
+    }
+        ul.imgs{
+            padding: 0;
+            margin: 0;
+        }
+        ul.imgs li{
+            position: absolute; /* 슬라이드가 겹쳐셔 모여야 하므로 absolute 속성으로 배치 */
+            opacity: 0; /* 체크한 라디오박스 순서의 슬라이드만 표시되도록 기본 투명도를 0으로 설정하여 보이지 않게함 */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .bullets{
+            position: absolute;
+            left: 50%;                      /* 가로기준 가운데 정렬 */
+            bottom: 0%;
+            transform: translateX(-50%);
+            --bottom: 20px;                   /* 슬라이드 밑에서 20px 간격 띄움 */
+            z-index: 2;                     /* 슬라이드 위에 보이도록 레이어 순위 높임 */
+        }
+            .bullets label{
+                display: inline-block;  /* 한줄로 불릿 나열 */
+                border-radius: 50%;     /* 원형 불릿으로 처리 */
+                width: 30px;            /* 불릿 너비 */
+                height: 30px;           /* 불릿 높이 */
+                cursor: pointer;
+                background-color: rgba(0,0,0,0.55);
+            }
+        /* 불릿 체크 효과 */
+        /* x번째 라디오박스가 체크된(nth-child(1):checked) 뒤에 나오는(~) n번째 라벨(.bullets>label:nth-child(1))을 선택해서 배경색을 변경*/
+        /* 쉽게 말해서 불릿을 선택하면 해당 불릿 색상을 배경을 변경한다는 의미. 선택된 것처럼 보이게 */
+        .firstslider input[type=radio]:nth-child(1):checked~.bullets>label:nth-child(1){
+            background-color: #fff;
+        }
+        .firstslider input[type=radio]:nth-child(2):checked~.bullets>label:nth-child(2){
+            background-color: #fff;
+        }
+        .firstslider input[type=radio]:nth-child(3):checked~.bullets>label:nth-child(3){
+            background-color: #fff;
+        }
+        .firstslider input[type=radio]:nth-child(4):checked~.bullets>label:nth-child(4){
+            background-color: #fff;
+        }
+        /* 슬라이드 전환 효과 */
+        /* 슬라이드 불릿을 클릭해 라디오박스가 체크되면, 해당 라디오박스 순서에 맞는 슬라이드를 투명상태에서 불투명 상태로 변경하고 
+            불투명해지는 과정이 전환애니메이션이 디ㅗ도록 한다.
+            - 애니메이션 시간은 1초(transition: 1s)로 하고,
+            - 체크된 슬라이드는 레이어 순위를 높여서(z-index:1) 이전에 표시되고 있던 슬라이드가 뒤로 가도록 함
+        */
+        .firstslider input[type=radio]:nth-child(1):checked~ul.imgs>li:nth-child(1){
+            opacity: 1;
+            transition: 1s;
+            z-index: 1;
+        }
+        .firstslider input[type=radio]:nth-child(2):checked~ul.imgs>li:nth-child(2){
+            opacity: 1;
+            transition: 1s;
+            z-index: 1;
+        }
+        .firstslider input[type=radio]:nth-child(3):checked~ul.imgs>li:nth-child(3){
+            opacity: 1;
+            transition: 1s;
+            z-index: 1;
+        }
+        .firstslider input[type=radio]:nth-child(4):checked~ul.imgs>li:nth-child(4){
+            opacity: 1;
+            transition: 1s;
+            z-index: 1;
+        }
+
+
+/* 푸터 부분 */
+footer{
+    width: 100%;
+    height: 150px;
+    background-color: rgb(55,55,55);
+    border-top: 2px solid #222;
+}
+    footer a{
+        color: rgba(219, 219, 219, 0.753);
+    }
+    footer a:hover{
+        color: white;
+    }
+    #footer-menu ul{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+        #footer-menu ul>li{
+            margin-right: 15px;
+            padding-right: 10px;
+            border-right:1px solid rgb(107, 107, 107);
+        }
+        #footer-menu ul>li:last-child{
+            border: none;
+        }
+    #footer-txt ul{
+        font-size: 0.8em;
+        display: flex;
+        justify-content: center;
+        color: rgb(188, 184, 184);
+    }
+        #footer-txt ul>li{
+            margin-right: 5px;
+            padding-right: 5px;
+            border-right:1px solid rgb(107, 107, 107);
+        }
+        #footer-txt ul>li:last-child{
+            border: none;
+        }
+    #footer-txt2 ul{
+        font-size: 0.8em;
+        display: flex;
+        justify-content: center;
+        color: rgb(188, 184, 184);
+    }
+        #footer-txt2 ul>li{
+            margin-right: 5px;
+            padding-right: 5px;
+            border-right:1px solid rgb(107, 107, 107);
+        }
+        #footer-txt2 ul>li:last-child{
+            border: none;
+        }
+    #copyright{
+        font-size: 0.8em;
+        display: flex;
+        justify-content: center;
+        color: rgb(188, 184, 184);
+    }
+

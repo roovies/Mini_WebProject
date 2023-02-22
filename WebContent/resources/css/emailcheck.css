@@ -1,0 +1,78 @@
+*{
+    margin: 0; /*마진 리셋*/
+    padding: 0; /*패딩 리셋*/
+    box-sizing: border-box; /*요소의 너비와 높이를 균일하게 유지해주는 편리한 속성*/
+}
+a{
+    /* 하이퍼링크 밑줄 없애기 */
+    text-decoration: none; 
+}
+ul{
+    /* 리스트 불릿기호 없애기 */
+    list-style-type: none;
+}
+
+.container{
+    width: 407px;
+    height: 250px;
+}
+header{
+    background-color: rgb(255, 109, 140);
+    color: white;
+    font-size: 1.5em;
+    font-weight: bolder;
+    padding: 15px;
+    
+}
+
+main{
+    padding: 25px;
+    display: flex;
+    
+}
+    .input-box{
+        width: 300px;
+        height: 50px;
+        border: 1px solid #ccc;
+        font-size: 1.05em;
+        font-weight: lighter;
+        padding: 10px;
+    }
+        .input-box:focus {
+            outline: 1px solid rgb(255, 0, 0);
+        }
+
+    main [type=submit]{
+        width: 100px;
+        height: 50px;
+        background-color: rgb(255, 109, 140);
+        border: none;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+        main [type=submit]:hover{
+            cursor: pointer;
+            background-color: rgb(255, 0, 0);
+        }
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    footer input{
+        border: none;
+        margin-top: 20px;
+        padding: 10px 80px;
+        background-color: rgb(255, 109, 140);
+        color: white;
+        font-weight: bolder;
+        font-size: 1.3em;
+    }
+        footer input:hover{
+            cursor: pointer;
+            background-color: rgb(255, 0, 0);
+        }

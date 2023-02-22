@@ -1,0 +1,207 @@
+*{
+    margin: 0; /*마진 리셋*/
+    padding: 0; /*패딩 리셋*/
+    box-sizing: border-box; /*요소의 너비와 높이를 균일하게 유지해주는 편리한 속성*/
+}
+a{
+    /* 하이퍼링크 밑줄 없애기 */
+    text-decoration: none; 
+}
+ul{
+    /* 리스트 불릿기호 없애기 */
+    list-style-type: none;
+}
+
+/* header, nav 상단 고정 */
+#fixed{
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+}
+/* 헤더 부분 */
+header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    --position: fixed;
+    --background-image: url(../images/background/headerbackground.png);
+}
+    #sns>ul{
+        display: flex;
+    }
+        #sns>ul>li{
+            padding: 10px;
+        }
+    #logo>a{
+        font-size: 3em;
+        font-family: 'Fredoka One', cursive;
+        color: rgb(255, 109, 140);
+    }
+    #login>ul{
+        display: flex;
+    }
+    #login a{
+        color: rgb(255, 109, 140);
+    }
+        #login>ul>li{
+            padding: 10px;
+        }
+
+/* 구분선 */
+hr{
+    border: 0;
+    height: 1px;
+    background-color: rgb(204, 200, 200);
+}
+
+/* 네비게이션(TopMenu) 부분 */
+#topMenu{
+    /* min-width: 600px; */ 
+    height: 50px;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+}
+    #topMenu>ul{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 50px;
+    }
+    #topMenu>ul>li{
+        margin: 15px;
+    }
+    #topMenu a{
+        font-weight: bold;
+        font-size: 1.1em;
+        color: rgb(128, 121, 121);
+        /* padding: 15px 100px; */
+    }
+    #topMenu a:hover{
+            /* background-color: rgba(255, 109, 140, 0.2); */
+            /* padding: 15px 70px; */
+            color: black;
+            border-bottom: 3px red solid;
+        }
+
+
+/* 메인 부분 */
+#topsize{
+    width: 100%;
+    height: 150px;
+}
+main{
+    width: 1200px;
+    height: 700px;
+    margin: 0 auto;
+}
+#register-msg{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+        #register-msg>img{
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+        }
+        #register-msg p:nth-child(2){
+            font-size: 2.5em;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: rgb(94, 94, 94);
+        }
+            #register-msg p:nth-child(2)>span{
+                font-weight: 1000;
+            }
+        #register-msg p:nth-child(3){
+            color: rgb(94, 94, 94);
+        }
+
+
+
+#joinbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    #joinbox input{
+        border: none;
+        margin-top: 20px;
+        padding: 10px 180px;
+        background-color: rgb(255, 109, 140);
+        color: white;
+        font-weight: bolder;
+        font-size: 1.3em;
+    }
+        #joinbox input:hover{
+            cursor: pointer;
+            background-color: rgb(255, 0, 0);
+        }
+
+
+
+/* 푸터 부분 */
+footer{
+    width: 100%;
+    height: 300px;
+    background-color: rgb(55,55,55);
+    border-top: 2px solid #222;
+}
+    footer a{
+        color: rgba(219, 219, 219, 0.753);
+    }
+    footer a:hover{
+        color: white;
+    }
+    #footer-menu ul{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+        #footer-menu ul>li{
+            margin-right: 15px;
+            padding-right: 10px;
+            border-right:1px solid rgb(107, 107, 107);
+        }
+        #footer-menu ul>li:last-child{
+            border: none;
+        }
+    #footer-txt ul{
+        font-size: 0.8em;
+        display: flex;
+        justify-content: center;
+        color: rgb(188, 184, 184);
+    }
+        #footer-txt ul>li{
+            margin-right: 5px;
+            padding-right: 5px;
+            border-right:1px solid rgb(107, 107, 107);
+        }
+        #footer-txt ul>li:last-child{
+            border: none;
+        }
+    #footer-txt2 ul{
+        font-size: 0.8em;
+        display: flex;
+        justify-content: center;
+        color: rgb(188, 184, 184);
+    }
+        #footer-txt2 ul>li{
+            margin-right: 5px;
+            padding-right: 5px;
+            border-right:1px solid rgb(107, 107, 107);
+        }
+        #footer-txt2 ul>li:last-child{
+            border: none;
+        }
+    #copyright{
+        font-size: 0.8em;
+        display: flex;
+        justify-content: center;
+        color: rgb(188, 184, 184);
+    }
+
